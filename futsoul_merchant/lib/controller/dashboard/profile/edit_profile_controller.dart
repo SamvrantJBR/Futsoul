@@ -80,7 +80,7 @@ class EditProfileController extends GetxController {
     futsalNameController.text = user.value?.futsalName ?? "";
     phoneController.text = user.value?.phone ?? "";
     addressController.text = user.value?.location ?? "";
-    priceController.text = user.value?.price ?? "";
+    priceController.text = user.value?.price?.toString() ?? "";
     var openTime = TimeOfDay(
         hour: int.parse(user.value!.startTime!.split(":")[0]),
         minute: int.parse(user.value!.startTime!.split(":")[1]));

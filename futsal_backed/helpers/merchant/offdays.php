@@ -62,10 +62,10 @@ function createMerchantOffDays($db, $token)
 		//If the start_date, end_date , start_time & end_time all are passed
 		if($start_date && $end_date && $start_time && $end_time) {
 
-			$hasAlready = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date <= :day AND end_date >= :day2 AND start_time <= :start_time AND end_time >= :end_time", [
-	            "merchant_id" => $merchant,
-	            "day"         => $day,
-	            "day2"        => $day,
+			$hasAlready = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day AND end_date >= :day2 AND start_time <= :start_time AND end_time >= :end_time", [
+	            "merchant_id" => $merchant['id'],
+	            "day"         => $start_date,
+	            "day2"        => $start_date,
 	            "start_time"  => $start_time,
 	            "end_time"    => $end_time,
 	        ])->get();
@@ -88,6 +88,9 @@ function createMerchantOffDays($db, $token)
 
 			//Close the query
 			$values .= ")";
+
+			
+
 
 			//call query methds in the Database Class, with query and parameters
 			$db->query($columns . $values, $fields);

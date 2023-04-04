@@ -6,7 +6,7 @@ List<OffDay> offDaysFromJson(List<dynamic> offDaysJson) =>
 
 class OffDay {
   int? id;
-  String? merchantId;
+  int? merchantId;
   String? startDate;
   String? endDate;
   String? startTime;

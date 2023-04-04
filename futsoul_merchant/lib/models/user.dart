@@ -7,7 +7,7 @@ class User {
   String? image;
   String? banner;
   String? email;
-  String? price;
+  int? price;
   String? description;
   bool? isAvailable;
   bool? isCompleted;

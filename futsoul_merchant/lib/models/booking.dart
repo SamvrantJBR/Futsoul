@@ -12,7 +12,7 @@ class Booking {
   String? paymentToken;
   String? startTime;
   String? endTime;
-  String? price;
+  int? price;
   String? status;
   String? isCancelledAt;
   String? createdAt;

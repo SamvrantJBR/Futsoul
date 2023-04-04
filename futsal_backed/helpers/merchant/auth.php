@@ -382,11 +382,11 @@ function resetMerchantPassword($db, $token) {
 					'email'       => $merchant['email'],
 					'price'       => $merchant['price'],
 					'description'        => $merchant['description'],
-					'is_completed'  => (bool) $new['is_completed'],
+					'is_completed'  => (bool) $merchant['is_completed'],
 					'is_available' => true,
-					'receivable' => (int) $new['receivable'],
-					'start_time'  => $new['start_time'],
-					'end_time'    => $new['end_time'],
+					'receivable' => (int) $merchant['receivable'],
+					'start_time'  => $merchant['start_time'],
+					'end_time'    => $merchant['end_time'],
 					'created_at'  => $merchant['created_at'],
 			]
 
