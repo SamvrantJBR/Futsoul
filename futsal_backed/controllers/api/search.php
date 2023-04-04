@@ -36,7 +36,7 @@ if(!$search) {
 		// Then search the merchants table which match the search value 
 		// Merchant is also a futsal company
 		$matched  = $db
-			->query("SELECT id, name, email ,phone, futsal_name, location, price, start_time, end_time, is_completed, created_at, updated_at FROM merchants WHERE is_completed IS NOT NULL AND futsal_name LIKE CONCAT( '%', :search, '%')", [
+			->query("SELECT * FROM merchants WHERE is_completed IS NOT NULL AND futsal_name LIKE CONCAT( '%', :search, '%')", [
 				'search'  => $_GET['search'],
 			])->get();
 

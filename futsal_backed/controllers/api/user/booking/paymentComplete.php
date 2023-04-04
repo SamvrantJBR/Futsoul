@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST') {
 
 	} else {
 
-		successResponse($response['message'], $response['data']);
+		successResponse("Payment Complete", $response['data']);
 
 	}
 

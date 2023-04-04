@@ -2,15 +2,15 @@ import 'package:futsoul_user/models/futsals.dart';
 
 class Booking {
   int? id;
-  String? userId;
-  String? merchantId;
+  int? userId;
+  int? merchantId;
   String? transactionId;
   String? day;
   String? type;
   String? paymentToken;
   String? startTime;
   String? endTime;
-  String? price;
+  int? price;
   String? status;
   String? isCancelledAt;
   String? createdAt;

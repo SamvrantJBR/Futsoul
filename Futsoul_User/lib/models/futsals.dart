@@ -13,7 +13,7 @@ class Futsal {
   String? location;
   String? banner;
   String? image;
-  String? price;
+  int? price;
   String? description;
   String? createdAt;
   String? updatedAt;

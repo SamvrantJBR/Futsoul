@@ -198,9 +198,9 @@ function bookFutsal($db, $token) {
         //So to tell/show the merchant 
         //The receivable field in increment by the price of the futsal
 		$u = $db->query("UPDATE merchants SET receivable = (receivable + :amount) WHERE id = :id LIMIT 1", [
-			'id'          => $futsal['merchant_id'],
-			"amount"      => $futsal['amoount'],
-		]);
+            'id'          => $futsal['id'],
+            "amount"      => $futsal['price'],
+        ]);
 
 
 		//Get the currently booked details

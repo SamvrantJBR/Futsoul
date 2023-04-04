@@ -18,7 +18,7 @@ class Database {
 	public function __construct(
 		array $config, 
 		string $username = 'root', 
-		string $password = '1111111111'
+		string $password = ''
 	) {	
 
 		//Making a query
