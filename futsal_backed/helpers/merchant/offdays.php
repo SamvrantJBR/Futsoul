@@ -95,12 +95,6 @@ function createMerchantOffDays($db, $token)
 			//call query methds in the Database Class, with query and parameters
 			$db->query($columns . $values, $fields);
 
-			//After inserting
-			//Ge the last inserted data of the current merchant
-			$new = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day AND LAST_INSERT_ID()  LIMIT 1", [
-				"merchant_id"  => $merchant['id'],
-				"day"          => $start_date,
-			])->find();
 
 		}
 
@@ -140,19 +134,13 @@ function createMerchantOffDays($db, $token)
 			//call query methds in the Database Class, with query and parameters
 			$db->query($columns . $values, $fields);
 
-			//After inserting
-			//Ge the last inserted data of the current merchant
-			$new = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day AND LAST_INSERT_ID()  LIMIT 1", [
-				"merchant_id"  => $merchant['id'],
-				"day"          => $start_date,
-			])->find();
 
 		} 
 
 
 
 		// If only start_date is passed
-		if($start_date && !$start_time && !$end_time) {
+		if($start_date && $end_date && !$start_time && !$end_time) {
 
 			//Check if the merchant has set the whole day as offday
 			$time = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day", [
@@ -168,9 +156,10 @@ function createMerchantOffDays($db, $token)
 			}
 
 
-			$columns .= ", created_at";
-			$values  .= ", :created_at";
+			$columns .= ", end_date, created_at";
+			$values  .= ",:end_date, :created_at";
 
+			$fields["end_date"]  = $end_date;
 			$fields["created_at"]  = date("Y-m-d H:i:s");
 
 			$values .= ")";
@@ -178,14 +167,14 @@ function createMerchantOffDays($db, $token)
 			//Call query method in datebase class with columns, query
 			$db->query($columns . $values, $fields);
 
+
+		} 
+
 			//Get the inserted data
 			$new = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day AND LAST_INSERT_ID()  LIMIT 1", [
 				"merchant_id"  => $merchant['id'],
 				"day"         => $start_date,
 			])->find();
-
-		} 
-
 
 		// Finally return the data - inserted data
 		return [
@@ -202,8 +191,6 @@ function createMerchantOffDays($db, $token)
 				"end_date"    => $new['end_date'],
 				"start_time"  => $new['start_time'],
 				"end_time"    => $new['end_time'],
-				"created_at"  => $new['created_at'],
-				"updated_at"  => $new['updated_at']
 
 			]
 

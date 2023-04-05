@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:futsoul_merchant/repo/auth/forget_password_repo.dart';
 import 'package:futsoul_merchant/utils/custom_snackbar.dart';
-import 'package:futsoul_merchant/views/auth/reset_password_screen.dart';
+import 'package:futsoul_merchant/views/welcome_screen.dart';
 import 'package:get/get.dart';
 import 'package:simple_fontellico_progress_dialog/simple_fontico_loading.dart';
 
@@ -19,7 +19,7 @@ class ForgetPasswordController extends GetxController {
         email: emailController.text,
         onSuccess: (message) {
           loading.hide();
-          Get.offNamed(ResetPasswordScreen.routeName, arguments: [emailController.text]);
+          Get.offAll(WelcomeScreen.routeName, arguments: [emailController.text]);
           CustomSnackBar.success(title: "Forget Password", message: message);
         },
         onError: (message) {

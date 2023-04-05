@@ -118,6 +118,11 @@ class AddOffDaysController extends GetxController {
         return;
       }
 
+      if(startDate.value != null && endDate.value == null){
+        endDate.value == startDate.value;
+        endDateController.text = startDate.value.toString().split(" ")[0];
+      }
+
       loading.show(message: "Please wait ..");
 
       await OffDyasRepo.addOffDays(
