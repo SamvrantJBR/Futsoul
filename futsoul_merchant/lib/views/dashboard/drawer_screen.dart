@@ -6,6 +6,8 @@ import 'package:futsoul_merchant/utils/custom_text_styles.dart';
 import 'package:futsoul_merchant/utils/image_path.dart';
 import 'package:futsoul_merchant/views/dashboard/profile/change_password_screen.dart';
 import 'package:futsoul_merchant/views/dashboard/profile/change_theme_screen.dart';
+import 'package:futsoul_merchant/views/dashboard/profile/edit_profile_screen.dart';
+import 'package:futsoul_merchant/views/dashboard/profile/off_days_screen.dart';
 import 'package:futsoul_merchant/widget/row/profile_list.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +19,7 @@ class DrawerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = Theme.of(context); 
+    var theme = Theme.of(context);
     return Drawer(
       backgroundColor: theme.colorScheme.background,
       child: SafeArea(
@@ -72,7 +74,7 @@ class DrawerScreen extends StatelessWidget {
             ProfileTile(
               onTap: () {
                 Get.back();
-                // Get.toNamed(EditProfileScreen.routeName);
+                Get.toNamed(EditProfileScreen.routeName);
               },
               leadingIcon: Icons.person_2_outlined,
               title: "Edit Profile",
@@ -95,6 +97,14 @@ class DrawerScreen extends StatelessWidget {
               leadingIcon: Icons.lock_outline,
               title: "Change Password",
               showTrailing: false,
+            ),
+            ProfileTile(
+              onTap: () {
+                Get.toNamed(OffDaysScreen.routeName);
+              },
+              leadingIcon: Icons.calendar_month_outlined,
+              showTrailing: false,
+              title: "Off Days",
             ),
             ProfileTile(
               onTap: () {

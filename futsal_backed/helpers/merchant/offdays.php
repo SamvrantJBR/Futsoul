@@ -23,9 +23,8 @@ function createMerchantOffDays($db, $token)
 		//Payloads sent by merchant
 		$start_date = $_POST['start_date'] ?? null;
 		$end_date   = $_POST['end_date'] ?? null;
-		$start_time = $_POST['start_time'] ?? null;
-		$end_time   = $_POST['end_time'] ?? null;
-
+		$start_time = $_POST['start_time'] ? (new DateTime($_POST['start_time']))->format("H:i:s") :  null;
+		$end_time   = $_POST['end_time'] ? (new DateTime($_POST['end_time']))->format("H:i:s") :  null;
 
 		if(!$start_date) {
 			
@@ -100,7 +99,7 @@ function createMerchantOffDays($db, $token)
 
 		//on the specific  day on specific time slot
 		//If the start_date, start_time & end_time all are passed
-		if($start_date && $start_time && $end_time) {
+		elseif($start_date && $start_time && $end_time) {
 
 			// get the offdays if in the passed day
 			// Between the passed time 
@@ -140,7 +139,7 @@ function createMerchantOffDays($db, $token)
 
 
 		// If only start_date is passed
-		if($start_date && $end_date && !$start_time && !$end_time) {
+		elseif($start_date && $end_date && !$start_time && !$end_time) {
 
 			//Check if the merchant has set the whole day as offday
 			$time = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day", [
@@ -168,7 +167,9 @@ function createMerchantOffDays($db, $token)
 			$db->query($columns . $values, $fields);
 
 
-		} 
+		}  else {
+			return returnReponse(false, "Please provide the date and time.");
+		}
 
 			//Get the inserted data
 			$new = $db->query("SELECT * FROM offdays WHERE merchant_id = :merchant_id AND start_date = :day AND LAST_INSERT_ID()  LIMIT 1", [

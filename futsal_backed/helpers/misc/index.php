@@ -96,9 +96,9 @@ function timeSlots($db, $merchant,  $day, $offdays, $duration = 60, $cleanup = 0
 
             'time'    =>  $intStart->format("H:i:a"). "-" . $endPeriod->format("H:i:a"),
 
-            'start'   =>  $intStart->format("H:i:a"),
+            'start'   =>  $intStart->format("H:i"),
 
-            'end'     =>  $endPeriod->format("H:i:a"),
+            'end'     =>  $endPeriod->format("H:i"),
 
         ];  
 
@@ -163,7 +163,7 @@ function generateTimeRange($database, $merchant, $from, $to, $offdays)
 
 
     $date = new DateTime(); 
-    $interval = 2;
+    $interval = 1;
     // Repeat x times at y day intervals. (Not including the initial)
     $repeatAmount = 2; 
     // Repeat the reminder x times

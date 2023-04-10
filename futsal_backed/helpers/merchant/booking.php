@@ -72,7 +72,7 @@ function createBookingByVendor($db, $token) {
 			'full_name'         => $full_name,
 			'email'             => $email,
 			'phone'             => $phone,
-			'created_at'       => date('Y-m-d, H:i:s'),
+			'created_at'       => date("Y-m-d H:i:s"),
 		]);
 
 
@@ -409,7 +409,7 @@ function completeBookingManually($db, $token)
 
 		'transaction'  => trim($transaction),
 		'status'       => "completed",
-		'updated'      => date('Y-m-d, H:i:s'),
+		'updated'      => date("Y-m-d H:i:s"),
 
 	]);
 
@@ -506,8 +506,8 @@ function cancelBookingByMerchant($db, $token){
 
 		'transaction'  			=> $transaction,
 		'status'       			=> "cancelled",
-		'updated'      			=> date('Y-m-d, H:i:s'),
-		'is_cancelled_at'       => date('Y-m-d, H:i:s'),
+		'updated'      			=> date("Y-m-d H:i:s"),
+		'is_cancelled_at'       => date("Y-m-d H:i:s"),
 
 	]);
 

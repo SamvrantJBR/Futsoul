@@ -16,22 +16,22 @@ ThemeData basicTheme() {
           primary: AppColors.primaryColor,
           background: AppColors.backGroundColor,
           outline: AppColors.lGrey,
-          onSurface: AppColors.lGrey,
-          onBackground: AppColors.textColor,
           shadow: AppColors.shadowColor,
           error: AppColors.errorColor));
 }
 
 TextTheme getBasicTextTheme() {
   return ThemeData.light().textTheme.copyWith().apply(
-      bodyColor: AppColors.textColor,
-      displayColor: AppColors.textColor,);
+        bodyColor: AppColors.textColor,
+        displayColor: AppColors.textColor,
+      );
 }
 
 TextTheme getDarkTextTheme() {
   return ThemeData.light().textTheme.copyWith().apply(
-      bodyColor: AppColors.backGroundColor,
-      displayColor: AppColors.backGroundColor,);
+        bodyColor: AppColors.backGroundColor,
+        displayColor: AppColors.backGroundColor,
+      );
 }
 
 ThemeData darkTheme() {
@@ -49,7 +49,6 @@ ThemeData darkTheme() {
           background: AppColors.backGroundDark,
           onBackground: AppColors.backGroundColor,
           outline: AppColors.lGrey,
-          onSurface: AppColors.onBackGroundDark,
           shadow: AppColors.shadowDark,
           error: AppColors.errorColor));
 }

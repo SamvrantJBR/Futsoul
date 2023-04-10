@@ -74,7 +74,7 @@ function addBanner($db)
 
 		//All fields
 		$fields['image']        = $uploaded['data'];
-		$fields['created_at']   = date('Y-m-d, H:i:s');
+		$fields['created_at']   = date("Y-m-d H:i:s");
 
 
 		//Insert into db	

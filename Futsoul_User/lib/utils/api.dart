@@ -1,6 +1,6 @@
 class Api {
   // static const String baseUrl = "https://coolkapada.com/api";
-  static const String baseUrl = "http://192.168.1.71:8000/api";
+  static const String baseUrl = "http://192.168.1.129:8000/api";
   static const String loginUrl = "$baseUrl/user/login";
   static const String registerUrl = "$baseUrl/user/register";
   static const String forgotPasswordUrl = "$baseUrl/user/forgot-password";

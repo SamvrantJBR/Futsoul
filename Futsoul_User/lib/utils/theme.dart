@@ -16,7 +16,6 @@ ThemeData basicTheme() {
           primary: AppColors.primaryColor,
           background: AppColors.backGroundColor,
           outline: AppColors.lGrey,
-          onSurface: AppColors.lGrey,
           onBackground: AppColors.textColor,
           shadow: AppColors.shadowColor,
           error: AppColors.errorColor));
@@ -50,7 +49,6 @@ ThemeData darkTheme() {
           primary: AppColors.primaryColor,
           background: AppColors.backGroundDark,
           onBackground: AppColors.backGroundColor,
-          onSurface: AppColors.onBackGroundDark,
           outline: AppColors.lGrey,
           shadow: AppColors.shadowDark,
           error: AppColors.errorColor));

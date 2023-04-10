@@ -158,7 +158,7 @@ function registerMerchant($db) {
 			'name'          => strip_tags($_POST['futsal_name']),
 			'email'         => strip_tags($_POST['email']),
 			'password'      => password_hash(strip_tags($_POST['password']), PASSWORD_DEFAULT),
-			'created_at'    => date('Y-m-d, H:i:s'),
+			'created_at'    => date("Y-m-d H:i:s"),
 			'token'         => $token,
 			'expiry'        => getExpiryDate(),
 			'receivable'    => 0,

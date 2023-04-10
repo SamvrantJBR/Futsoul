@@ -1,6 +1,6 @@
 class Api {
   // static const String baseUrl = "https://coolkapada.com/api";
-  static const String baseUrl = "http://192.168.1.68:8000/api";
+  static const String baseUrl = "http://192.168.1.129:8000/api";
   static const String prefix = "/merchant";
   static const String bannersUrl = "$baseUrl/banners";
   static const String incomesUrl = "$baseUrl$prefix/incomes";
@@ -13,9 +13,8 @@ class Api {
   static const String cancelBookingUrl = "$baseUrl$prefix/cancelBooking";
   static const String resetPasswordUrl =
       "$baseUrl$prefix/reset-forgot-password";
-  static const String changePasswordUrl =
-      "$baseUrl$prefix/reset-password";
-  
+  static const String changePasswordUrl = "$baseUrl$prefix/reset-password";
+
   static const String getActiveBookingsUrl = "$baseUrl$prefix/active-bookings";
   static const String getPastBookingsUrl = "$baseUrl$prefix/past-bookings";
   static const String newBookingsUrl = "$baseUrl$prefix/add-booking";

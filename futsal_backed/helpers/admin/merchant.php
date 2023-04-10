@@ -37,7 +37,7 @@ function createNewMerchantByAdmin($db)
 		'email'         => strip_tags($_POST['email']),
 		'phone'         => strip_tags($_POST['phone']),
 		'password'      => password_hash($pass, PASSWORD_DEFAULT),
-		'created_at'    => date('Y-m-d, H:i:s'),
+		'created_at'    => date("Y-m-d H:i:s"),
 		'token'         => $token,
 		'expiry'        => getExpiryDate(),
 		'location'      => ($validated['data']['location']), 

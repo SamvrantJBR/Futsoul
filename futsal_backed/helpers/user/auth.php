@@ -154,7 +154,7 @@ function registerUser($db) {
 			'phone'         => strip_tags($_POST['phone']),
 			'email'         => strip_tags($_POST['email']),
 			'password'      => password_hash(strip_tags($_POST['password']), PASSWORD_DEFAULT),
-			'created_at'    => date('Y-m-d, H:i:s'),
+			'created_at'    => date("Y-m-d H:i:s"),
 			'token'         => $token,
 			'expiry'        => getExpiryDate(),
 		]);

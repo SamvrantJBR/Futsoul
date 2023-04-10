@@ -187,7 +187,7 @@ function bookFutsal($db, $token) {
 			'start_time'       => $_POST['start_time'] ?? null,
 			'end_time'         => $_POST['end_time'] ?? null,
 			'price'            => $futsal['price'],
-			'created_at'       => date('Y-m-d, H:i:s'),
+			'created_at'       => date("Y-m-d H:i:s"),
 			'status'           => "pending",
 			"type"             => "online"
 		]);
@@ -401,7 +401,7 @@ function completeBooking($db, $token)
 
 			'transaction'  => trim($transaction),
 			'status'       => $status,
-			'updated'      => date('Y-m-d, H:i:s'),
+			'updated'      => date("Y-m-d H:i:s"),
 			'payment_token' => $token
 
 		]);
@@ -536,8 +536,8 @@ function cancel($db, $token)
 
 			'transaction'  => $transaction,
 			"status" 	   => "cancelled", 
-			'cancel'       => date('Y-m-d, H:i:s'),
-			'updated'      => date('Y-m-d, H:i:s'),
+			'cancel'       => date("Y-m-d H:i:s"),
+			'updated'      => date("Y-m-d H:i:s"),
 
 		]);
 

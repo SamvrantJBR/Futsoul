@@ -14,7 +14,7 @@ class SplashController extends GetxController {
           if (coreController.currentUser.value!.isCompleted!) {
             Get.offAndToNamed(DashScreen.routeName);
           } else {
-            Get.to(WelcomeScreen.routeName);
+            Get.toNamed(WelcomeScreen.routeName);
           }
         } else {
           Get.offAllNamed(WelcomeScreen.routeName);
